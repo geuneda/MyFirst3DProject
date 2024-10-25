@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a205c6d9ba42442a7be76c28907635, type: 3}
+  m_Name: Drink_3
+  m_EditorClassIdentifier: 
+  displayName: "\uC640\uC778"
+  description: "\uCCB4\uB825\uACFC \uBC30\uACE0\uD514\uC744 \uD68C\uBCF5\uC2DC\uCF1C\uC900\uB2E4
+    !"
+  type: 1
+  icon: {fileID: 21300000, guid: 550ede9bb5757054e8508fdaf569cc47, type: 3}
+  dropPrefab: {fileID: 1523618057190754, guid: 39bf1f5a16499464d9c6abd76b48a5b7, type: 3}
+  canStack: 1
+  maxStackAmount: 99
+  consumables: []
