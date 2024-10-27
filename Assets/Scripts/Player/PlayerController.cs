@@ -79,12 +79,21 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed;
-        dir.y = _rigidbody.velocity.y;
+        Vector3 inputDirection = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
+        inputDirection *= moveSpeed;
 
-        _rigidbody.velocity = dir;
+        RaycastHit hit;
+        Vector3 playerPosition = transform.position + Vector3.up * 0.1f;
+        if (Physics.Raycast(playerPosition, inputDirection.normalized, out hit, 0.5f))
+        {
+            inputDirection = Vector3.ProjectOnPlane(inputDirection, hit.normal);
+        }
+
+        inputDirection.y = _rigidbody.velocity.y;
+
+        _rigidbody.velocity = inputDirection;
     }
+
 
     void CameraLook()
     {
