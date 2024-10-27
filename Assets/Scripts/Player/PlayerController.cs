@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit hit;
         Vector3 playerPosition = transform.position + Vector3.up * 0.3f;
-        if (Physics.Raycast(playerPosition, inputDirection.normalized, out hit, 0.5f))
+        if (Physics.Raycast(playerPosition, inputDirection.normalized, out hit, 0.5f, ~0, QueryTriggerInteraction.Ignore))
         {
             inputDirection = Vector3.ProjectOnPlane(inputDirection, hit.normal);
         }
