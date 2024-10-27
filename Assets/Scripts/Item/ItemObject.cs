@@ -15,6 +15,11 @@ public class ItemObject : MonoBehaviour, IInteractable
 
         if (data.type == ItemType.Structure)
         {
+            var structureScript = GetComponent<IStructure>();
+            if (structureScript != null)
+            {
+                structureScript.Activate();
+            }
             return;
         }
 
