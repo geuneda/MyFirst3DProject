@@ -56,7 +56,7 @@ public class MovingPlatform : MonoBehaviour
 
     private void RotatePlatform()
     {
-        transform.Rotate(rotationAxis, rotationSpeed * Time.deltaTime);
+        transform.Rotate(rotationAxis.normalized, rotationSpeed * Time.deltaTime, Space.Self);
     }
 
     private void ApplyMovementToObjectsOnPlatform()
