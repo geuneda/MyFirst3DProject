@@ -3511,7 +3511,9 @@ GameObject:
   - component: {fileID: 33123918708604061}
   - component: {fileID: 23055124486654701}
   - component: {fileID: 64455504463175993}
-  m_Layer: 6
+  - component: {fileID: 64455504463175995}
+  - component: {fileID: 64455504463175994}
+  m_Layer: 8
   m_Name: Ladder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14810,7 +14812,7 @@ Transform:
   m_GameObject: {fileID: 1031874277940451}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.230358, y: 1.392067, z: -24.724686}
+  m_LocalPosition: {x: -13.230358, y: 1.392067, z: -24.711}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34938,6 +34940,35 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43232215155587618, guid: 15bb7ef13cef3e24cb6e7c1cc20be3be, type: 2}
+--- !u!114 &64455504463175994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031874277940451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a5dcd9d411fd04d83b31acf5685165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 7
+  yMinLimit: 12
+  yMaxLimit: 17
+  exitCooldown: 0.5
+--- !u!114 &64455504463175995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031874277940451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf676673ae5f6204bb7c27f60441111b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 96e65c116931e24408af792e297bf9a0, type: 2}
 --- !u!64 &64473802824397771
 MeshCollider:
   m_ObjectHideFlags: 0
