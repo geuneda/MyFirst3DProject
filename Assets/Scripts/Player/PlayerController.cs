@@ -101,7 +101,6 @@ public class PlayerController : MonoBehaviour
         _rigidbody.velocity = inputDirection;
     }
 
-
     void CameraLook()
     {
         camCurXRot += mouseDelta.y * lookSensitivity;

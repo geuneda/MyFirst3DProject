@@ -1415,10 +1415,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  jumptForce: 180
+  jumptForce: 200
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  airMovementSpeed: 1
   cameraContainer: {fileID: 854107941}
   minXLook: -85
   maxXLook: 85
