@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool canLook = true;
 
+    private UIInventory inventory;
     private Rigidbody _rigidbody;
     private Animator animator;
     private void Awake()
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        inventory = FindObjectOfType<UIInventory>();
     }
 
     private void FixedUpdate()
@@ -46,6 +48,11 @@ public class PlayerController : MonoBehaviour
         {
             CameraLook();
         }
+    }
+
+    public void OnInventorySelect(InputAction.CallbackContext context)
+    {
+        inventory.OnInventorySelect(context);
     }
 
     public void OnLookInput(InputAction.CallbackContext context)
@@ -130,4 +137,5 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
     }
+
 }
