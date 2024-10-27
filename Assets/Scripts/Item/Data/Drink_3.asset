@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Drink_3
   m_EditorClassIdentifier: 
   displayName: "\uC18C\uC8FC"
-  description: "\uCCB4\uB825\uACFC \uBC30\uACE0\uD514\uC744 \uD68C\uBCF5\uC2DC\uCF1C\uC900\uB2E4
-    !"
+  description: "\uCCB4\uB825\uACFC \uBC30\uACE0\uD514\uC744 \uD68C\uBCF5\uC2DC\uCF1C\uC8FC\uACE0,
+    5\uBD84\uB3D9\uC548 \uC18D\uB3C4\uAC00 2\uBC30 \uC0C1\uC2B9\uD55C\uB2E4."
   type: 1
   icon: {fileID: 21300000, guid: 550ede9bb5757054e8508fdaf569cc47, type: 3}
   dropPrefab: {fileID: 1523618057190754, guid: 39bf1f5a16499464d9c6abd76b48a5b7, type: 3}
@@ -25,3 +25,5 @@ MonoBehaviour:
     value: 80
   - type: 1
     value: 80
+  - type: 2
+    value: 2

@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class UIInventory : MonoBehaviour
 {
-    public ItemSlot[] slots; // 인벤토리 슬롯 배열
+    public ItemSlot[] slots;
 
     private PlayerCondition condition;
 
@@ -38,7 +38,6 @@ public class UIInventory : MonoBehaviour
     {
         if (slots[slotIndex].IsEmpty()) return;
 
-        // Consumable 아이템일 경우 사용
         if (slots[slotIndex].item.type == ItemType.Consumable)
         {
             for (int i = 0; i < slots[slotIndex].item.consumables.Length; i++)
@@ -50,6 +49,10 @@ public class UIInventory : MonoBehaviour
                         break;
                     case ConsumableType.Hunger:
                         condition.Eat(slots[slotIndex].item.consumables[i].value);
+                        break;
+                    case ConsumableType.Speed:
+                        condition.SpeedItem(slots[slotIndex].item.consumables[i].value, 300);
+                        CharacterManager.Instance.Player.condition.uiCondition.speedBuffTimer.StartTimer(300);
                         break;
                 }
             }
