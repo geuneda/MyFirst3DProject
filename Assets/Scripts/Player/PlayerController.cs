@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 curMovementInput;
     public float jumptForce;
     public LayerMask groundLayerMask;
+    public float jumpStamina = 10f;
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -80,7 +82,10 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started && IsGrounded())
         {
-            _rigidbody.AddForce(Vector2.up * jumptForce, ForceMode.Impulse);
+            if (CharacterManager.Instance.Player.condition.UseStamina(jumpStamina))
+            {
+                _rigidbody.AddForce(Vector2.up * jumptForce, ForceMode.Impulse);
+            }
         }
     }
 
