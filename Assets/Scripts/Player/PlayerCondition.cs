@@ -49,7 +49,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     public void Die()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void TakePhysicalDamage(int damageAmount)
