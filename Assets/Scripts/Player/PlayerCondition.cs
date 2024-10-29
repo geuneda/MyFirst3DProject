@@ -10,16 +10,20 @@ public interface IDamagable
 
 public class PlayerCondition : MonoBehaviour, IDamagable
 {
+    public Invincibility invincibility;
     public UICondition uiCondition;
 
     Condition health { get { return uiCondition.health; } }
     Condition hunger { get { return uiCondition.hunger; } }
     Condition stamina { get { return uiCondition.stamina; } }
 
+    private bool isInvincible = false;
     public float noHungerHealthDecay;
+    
     public event Action onTakeDamage;
 
     private Coroutine activeSpeedBoostCoroutine;
+
 
     private void Update()
     {
@@ -64,8 +68,20 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     public void TakePhysicalDamage(int damageAmount)
     {
+        if (isInvincible)
+            return;
+
         health.Subtract(damageAmount);
-        onTakeDamage?.Invoke();
+        StartInvincibility();
+    }
+
+    private void StartInvincibility()
+    {
+        if (invincibility != null)
+        {
+            isInvincible = true;
+            invincibility.StartInvincibility(() => isInvincible = false);
+        }
     }
 
     public void SpeedItem(float mutiplier, float duration)

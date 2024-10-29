@@ -32,7 +32,7 @@ public class LaserController : MonoBehaviour
             {
                 lineRenderer.SetPosition(i, start);
                 lineRenderer.SetPosition(i + 1, hit.point);
-                CharacterManager.Instance.Player.condition.TakePhysicalDamage(1);
+                CharacterManager.Instance.Player.condition.TakePhysicalDamage(10);
             }
             else
             {
