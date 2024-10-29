@@ -3,7 +3,6 @@ using UnityEngine;
 public class TeleportPanel : MonoBehaviour
 {
     private Transform playerTransform;
-    private float? playerCameraSensitivity;
 
     [SerializeField] private GameObject panel;
     [SerializeField] private GameObject exit;
@@ -27,12 +26,7 @@ public class TeleportPanel : MonoBehaviour
         panel.gameObject.SetActive(true);
         exit.gameObject.SetActive(true);
 
-        if (playerCameraSensitivity == null)
-        {
-            playerCameraSensitivity = CharacterManager.Instance.Player.controller.lookSensitivity;
-        }
-
-        CharacterManager.Instance.Player.controller.lookSensitivity = 0;
+        CharacterManager.Instance.Player.controller.canLook = false;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
@@ -42,14 +36,10 @@ public class TeleportPanel : MonoBehaviour
         if (!panel.activeSelf)
             return;
 
-        if (playerCameraSensitivity != null)
-        {
-            CharacterManager.Instance.Player.controller.lookSensitivity = (float)playerCameraSensitivity;
-        }
-
         panel.gameObject.SetActive(false);
         exit.gameObject.SetActive(false);
 
+        CharacterManager.Instance.Player.controller.canLook = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
