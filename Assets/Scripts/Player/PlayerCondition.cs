@@ -20,7 +20,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     private bool isInvincible = false;
     public float noHungerHealthDecay;
     
-    public event Action onTakeDamage;
+    //public event Action onTakeDamage;
 
     private Coroutine activeSpeedBoostCoroutine;
 
