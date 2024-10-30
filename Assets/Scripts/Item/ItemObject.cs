@@ -26,6 +26,10 @@ public class ItemObject : MonoBehaviour, IInteractable
         CharacterManager.Instance.Player.itemData = data;
         CharacterManager.Instance.Player.addItem?.Invoke();
         Destroy(gameObject);
-        
+    }
+
+    public string GetInteractionText()
+    {
+        return "상호작용 (E)";
     }
 }

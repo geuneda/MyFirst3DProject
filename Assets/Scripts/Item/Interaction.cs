@@ -6,6 +6,7 @@ public interface IInteractable
 {
     public string GetInteractPrompt();
     public void OnInteract();
+    string GetInteractionText();
 }
 
 public class Interaction : MonoBehaviour
@@ -18,6 +19,7 @@ public class Interaction : MonoBehaviour
     public GameObject curInteractGameObject;
     private IInteractable curInteractable;
 
+    public TextMeshProUGUI worldText;
     public TextMeshProUGUI promptText;
     private Camera _camera;
 
@@ -51,6 +53,7 @@ public class Interaction : MonoBehaviour
                 promptText.gameObject.SetActive(false);
             }
         }
+        ShowWorldText();
     }
 
     private void SetPromptText()
@@ -67,6 +70,21 @@ public class Interaction : MonoBehaviour
             curInteractGameObject = null;
             curInteractable = null;
             promptText.gameObject.SetActive(false);
+        }
+    }
+
+    private void ShowWorldText()
+    {
+        if (curInteractable != null)
+        {
+            worldText.text = curInteractable.GetInteractionText();
+            worldText.gameObject.SetActive(true);
+            Vector3 worldTextPosition = _camera.WorldToScreenPoint(curInteractGameObject.transform.position + Vector3.up * 1.5f);
+            worldText.transform.position = worldTextPosition;
+        }
+        else
+        {
+            worldText.gameObject.SetActive(false);
         }
     }
 }
