@@ -23,7 +23,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     //public event Action onTakeDamage;
 
     private Coroutine activeSpeedBoostCoroutine;
-
+    private float baseSpeed;
 
     private void Update()
     {
@@ -89,6 +89,7 @@ public class PlayerCondition : MonoBehaviour, IDamagable
         if (activeSpeedBoostCoroutine != null)
         {
             StopCoroutine(activeSpeedBoostCoroutine);
+            CharacterManager.Instance.Player.controller.moveSpeed = baseSpeed;
         }
 
         activeSpeedBoostCoroutine = StartCoroutine(SpeedBoostCoroutine(mutiplier, duration));
@@ -96,13 +97,11 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     //다음부턴 코루틴의 시작 종료도 함수로 사용하자...
     private IEnumerator SpeedBoostCoroutine(float mutiplier, float duration)
     {
-        // 시작
-        float baseSpeed = CharacterManager.Instance.Player.controller.moveSpeed;
+        baseSpeed = CharacterManager.Instance.Player.controller.moveSpeed;
         CharacterManager.Instance.Player.controller.moveSpeed *= mutiplier;
 
         yield return new WaitForSeconds(duration);
 
-        // 종료
         CharacterManager.Instance.Player.controller.moveSpeed = baseSpeed;
         activeSpeedBoostCoroutine = null;
     }
